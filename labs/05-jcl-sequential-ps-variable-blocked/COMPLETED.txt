@@ -1,0 +1,12 @@
+LAB 05 — Sequential PS Data Set with Variable Blocked Records
+STATUS: COMPLETED / PASS
+
+Validated:
+- CRTVB / CREATE / IEFBR14
+- CC 0000
+- IBMUSER.JCLLAB05.VB cataloged
+- DSORG=PS
+- RECFM=VB
+- LRECL=80
+- BLKSIZE=27998
+- runtime evidence preserved
