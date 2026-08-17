@@ -1,0 +1,12 @@
+LAB 06 - Sequential Data Set Delete
+STATUS: COMPLETED
+
+Validated from supplied evidence:
+- controlled creation JCL
+- target exists before delete
+- batch delete JCL
+- DISP=(OLD,DELETE,DELETE)
+- target absent after delete
+
+Evidence limitation:
+- no SDSF/JES RC or MAXCC screenshot was supplied
