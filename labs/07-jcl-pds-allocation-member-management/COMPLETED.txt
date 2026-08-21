@@ -1,0 +1,4 @@
+LAB 07 - PDS Allocation and Member Management
+STATUS: COMPLETED
+
+Validated: COND CODE 0000; cataloged PDS; PO/FB/LRECL 80; observed BLKSIZE 27920; directory blocks 10; MEMBER1 created, listed and verified.
