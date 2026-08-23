@@ -1,0 +1,26 @@
+//L08DATA  JOB (ACCT),'LAB08 DATA',
+//             CLASS=A,
+//             MSGCLASS=X,
+//             MSGLEVEL=(1,1),
+//             NOTIFY=&SYSUID
+//*
+//***************************************************************
+//* LAB 08 - PS/PDS DATA SET OPERATIONS
+//* PART 1 / PHASE 01 - CREATE SEQUENTIAL INPUT DATA
+//***************************************************************
+//*
+//CREATE   EXEC PGM=IEBGENER
+//SYSPRINT DD SYSOUT=*
+//SYSUT1   DD *
+LAB08 RECORD 01 - JCL DATA SET OPERATIONS
+LAB08 RECORD 02 - PHYSICAL SEQUENTIAL INPUT
+LAB08 RECORD 03 - DATA FOR COPY OPERATIONS
+LAB08 RECORD 04 - PS AND PDS PRACTICE
+LAB08 RECORD 05 - END OF INPUT DATA
+/*
+//SYSUT2   DD DSN=IBMUSER.JCLLAB08.INPUT,
+//             DISP=(NEW,CATLG,DELETE),
+//             UNIT=SYSDA,
+//             SPACE=(TRK,(1,1)),
+//             DCB=(DSORG=PS,RECFM=FB,LRECL=80,BLKSIZE=0)
+//SYSIN    DD DUMMY
