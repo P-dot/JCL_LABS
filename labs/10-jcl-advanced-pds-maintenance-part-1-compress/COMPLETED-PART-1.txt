@@ -1,0 +1,7 @@
+LAB 10 PART 1 — COMPLETED / PASS
+Phase 1 preparation and replacements: PASS
+Phase 2 IEBCOPY COMPRESS: PASS
+IEBCOPY highest severity code: 0
+Members moved: 2 of 3
+Phase 3: PENDING
+Phase 4: PENDING
