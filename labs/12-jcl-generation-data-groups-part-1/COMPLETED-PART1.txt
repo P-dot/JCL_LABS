@@ -1,0 +1,23 @@
+LAB 12 — GENERATION DATA GROUPS — PART 1
+STATUS: COMPLETED
+RESULT: PASS
+
+VALIDATED
+- Pre-lab namespace check
+- Initial DEFINE GDG error captured
+- IDCAMS syntax problem diagnosed
+- Corrected DEFINE GDG: MAXCC 0
+- GDG base visible in ISPF
+- LISTCAT ALL: CC 0
+- LIMIT(3), NOEMPTY, SCRATCH verified
+- G0001V00 cataloged
+- G0002V00 cataloged
+- G0003V00 cataloged
+- Part 1 ends exactly at LIMIT(3)
+
+PART 2
+- fourth generation and rollover
+- ALTER
+- data movement between generations
+- generation deletion
+- GDG base deletion
