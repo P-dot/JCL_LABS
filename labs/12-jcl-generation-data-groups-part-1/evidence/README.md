@@ -1,22 +1,7 @@
-# Lab 12 evidence images — replacement set
+# Lab 12 — Evidence replacement
 
-These images were cropped directly from the all-images Lab 12 evidence supplied by the user.
-No terminal text was regenerated or altered. The crops were only enlarged/resampled for visibility.
+This directory contains the original PNG files supplied directly in the conversation.
 
-Individual screenshots: **15**
+Important: several PNG files contain more than one terminal screenshot. The complete set represents **15 terminal evidence captures**, while the repository stores **10 original PNG files** so no crop, rescale, recompression, or text reconstruction is introduced.
 
-- `screenshots/01_lab12_evidence.png`
-- `screenshots/02_lab12_evidence.png`
-- `screenshots/03_lab12_evidence.png`
-- `screenshots/04_lab12_evidence.png`
-- `screenshots/05_lab12_evidence.png`
-- `screenshots/06_lab12_evidence.png`
-- `screenshots/07_lab12_evidence.png`
-- `screenshots/08_lab12_evidence.png`
-- `screenshots/09_lab12_evidence.png`
-- `screenshots/10_lab12_evidence.png`
-- `screenshots/11_lab12_evidence.png`
-- `screenshots/12_lab12_evidence.png`
-- `screenshots/13_lab12_evidence.png`
-- `screenshots/14_lab12_evidence.png`
-- `screenshots/15_lab12_evidence.png`
+The images document the Lab 12 Part 1 path from the initial namespace check through GDG definition, IDCAMS diagnosis/correction, LISTCAT validation, first-generation creation, and the final state with three generations at LIMIT(3).
