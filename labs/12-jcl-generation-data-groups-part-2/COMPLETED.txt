@@ -1,0 +1,25 @@
+LAB 12 — GENERATION DATA GROUPS — PART 2
+COMPLETED AND VALIDATED
+
+Validated:
+- G0004V00 creation
+- LIMIT(3) rollover
+- NOEMPTY + SCRATCH behavior
+- ALTER LIMIT(5)
+- LISTCAT post-ALTER validation
+- G0005V00 creation
+- G0006V00 creation
+- final five-generation ISPF state
+
+Final GDG:
+IBMUSER.JCLLAB12.GDG
+
+Final active generations:
+G0002V00
+G0003V00
+G0004V00
+G0005V00
+G0006V00
+
+Next lab:
+GDG data movement and relative-generation batch usage.
