@@ -1,0 +1,17 @@
+LAB 13 — GDG DATA MOVEMENT AND RELATIVE GENERATIONS
+COMPLETED AND VALIDATED
+
+Validated:
+- controlled source PS
+- PS -> GDG(+1)
+- G0007V00 with real data
+- GDG(0) -> G0007V00
+- GDG(-1) -> G0006V00
+- G0008V00 with different data
+- rollover under LIMIT(5)
+- same GDG(0) JCL -> G0008V00
+- same GDG(-1) JCL -> G0007V00
+- SYSOUT content validation
+- final active range G0004V00-G0008V00
+
+All final execution steps: CC=0000
