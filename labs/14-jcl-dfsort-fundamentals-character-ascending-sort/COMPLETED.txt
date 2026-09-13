@@ -1,0 +1,16 @@
+LAB 14 — DFSORT FUNDAMENTALS: CHARACTER KEY ASCENDING SORT
+COMPLETED AND VALIDATED
+
+Validated:
+- FB80 controlled input creation
+- initial SYSUT/SYSUT1 DDNAME failure: CC=0012
+- diagnosis and correction
+- corrected input creation: CC=0000
+- PGM=SORT execution
+- SORTIN / SORTOUT / SYSIN / SYSOUT
+- SORT FIELDS=(1,5,CH,A)
+- 6 records processed
+- 480 bytes sorted
+- input KEPT
+- output CATALOGED
+- final ascending order verified in ISPF Browse
