@@ -1,697 +1,173 @@
-# JCL Engineering Labs
+# JCL Engineering Labs — z/OS Batch Execution
 
-Hands-on **Job Control Language (JCL)** engineering labs for z/OS ADCD / Hercules.
+Hands-on **Job Control Language (JCL)** engineering labs for z/OS ADCD / Hercules, built around reproducible JES2 execution, return-code analysis, data-set lifecycle operations, IBM utilities, and evidence-driven troubleshooting.
 
-This repository develops the batch execution foundations used across the wider z/OS Engineering Laboratory. The labs progress from core JCL syntax and procedure handling into sequential datasets, PDS management, IBM utilities, IDCAMS and Generation Data Groups.
+> **Validated scope:** Labs 01–14
+> **Latest validated capability:** DFSORT character-key ascending sort
+> **Architecture:** Portfolio Navigation V2 / Engineering Control
 
----
+## Navigate
 
-## Repository role
+- [Labs](#validated-lab-progression)
+- [Ecosystem Integration](docs/ECOSYSTEM-INTEGRATION.md)
+- [MVS TSO/ISPF](https://github.com/P-dot/MVS_TSO_ISPF)
+- [Workload Automation](https://github.com/P-dot/zos-batch-scheduler)
+- [z/OS Engineering Laboratory](https://github.com/P-dot/zos-adcd-hercules-engineering-lab)
+- [Portfolio](https://github.com/P-dot/P-dot)
 
-`JCL_LABS` is the **batch execution backbone** of the ecosystem.
+## Repository Role
 
-Its role is to define how work is described to JES2:
+`JCL_LABS` owns the **general batch workload-description and execution patterns** used throughout the portfolio.
+
+It demonstrates how JCL describes work submitted to JES2, how programs and IBM utilities receive their resources through DD statements, how data sets move through controlled lifecycles, and how execution results are validated from return codes, messages, spool output, and final data state.
 
 ```text
-JCL
- |
- v
-JES2
- |
- +--> utilities
- +--> COBOL
- +--> VSAM
- +--> DB2
- +--> USS / BPXBATCH
- +--> future scheduler-controlled workloads
+MVS_TSO_ISPF
+     |
+     | interactive creation / editing / submission
+     v
+ JCL_LABS
+     |
+     | JOB / EXEC / DD / PROC / utility control
+     v
+   JES2
+     |
+     | execution / spool / RC / messages
+     v
+ workload or utility
 ```
 
-JCL does not replace application logic and it does not replace the scheduler.
+The repository does **not** own scheduler orchestration, application logic, RACF policy, VSAM organization, Db2 behavior, CICS runtime administration, REXX language semantics, or system-level JES2 administration.
 
-The architectural boundary is:
+## Batch Execution Boundary
+
+The portfolio separates orchestration, workload description, and execution:
 
 ```text
-Scheduler decides when work runs
+zos-batch-scheduler
         |
+        | when / dependencies / operational state
         v
-JCL describes what is executed
+       JCL
         |
+        | what is executed and with which resources
         v
-JES2 executes the batch workload
+      JES2
+        |
+        | batch execution / spool
+        v
+ program / utility
 ```
 
-For the detailed cross-repository architecture, see:
+This boundary prevents the scheduler repository, JCL repository, and application repositories from duplicating one another.
 
-[`docs/ECOSYSTEM-INTEGRATION.md`](docs/ECOSYSTEM-INTEGRATION.md)
-
----
-
-## Environment
-
-Current lab environment:
-
-- z/OS 1.11 ADCD
-- Hercules
-- TSO/E
-- ISPF
-- SDSF
-- JES2
-- standard z/OS utilities used by the individual labs
-- cataloged datasets and PDS members created inside the controlled lab environment
-
-The repository documents behavior actually validated in this environment.
-
----
-
-## Current lab progression
-
-| Lab | Topic | Status |
-|---|---|---|
-| 01 | JCL Fundamentals | Completed |
-| 02 | Cataloged Procedures and Symbolic Overrides | Completed |
-| 03 | In-stream Procedures | Completed |
-| 04 | Sequential PS — Fixed Block | Completed |
-| 05 | Sequential PS — Variable Blocked | Completed |
-| 06 | Sequential Dataset Delete | Completed |
-| 07 | PDS Allocation and Member Management | Completed |
-| 08 Part 1 | PS / PDS Data Set Operations | Completed |
-| 08 Part 2 | PS / PDS Data Set Operations | Completed |
-| 09 | IEBCOPY Select / Exclude PDS Members | Completed |
-| 10 Part 1 | Advanced PDS Maintenance — Compress | Completed |
-| 10 | Advanced PDS Maintenance | Completed |
-| 11 | IDCAMS Delete — PS / PDS Member | Completed |
-| 12 Part 1 | Generation Data Groups Fundamentals | Completed |
-| 12 Part 2 | GDG Rollover and Limit Management | Completed |
-| 13 | GDG Data Movement and Relative Generations | Completed |
-
-The progression is deliberately cumulative:
+## Capability Progression
 
 ```text
-JCL syntax
-   |
-   v
-procedures
-   |
-   v
-sequential datasets
-   |
-   v
-PDS management
-   |
-   v
-utility-driven operations
-   |
-   v
+JCL FUNDAMENTALS
+  Lab 01
+      |
+      v
+PROCEDURES
+  Labs 02-03
+      |
+      v
+SEQUENTIAL DATA SETS
+  Labs 04-06
+      |
+      v
+PDS / MEMBER OPERATIONS
+  Labs 07-10
+      |
+      v
 IDCAMS
-   |
-   v
-GDGs
+  Lab 11
+      |
+      v
+GDG WORKFLOWS
+  Labs 12-13
+      |
+      v
+DFSORT
+  Lab 14
+      |
+      v
+CROSS-DOMAIN HANDOFF
+  scheduler / applications / data / automation
 ```
 
----
+## Validated Lab Progression
 
-# Lab 01 — JCL Fundamentals
+| Lab | Capability | Evidence state |
+| --- | --- | --- |
+| [01](labs/01-jcl-fundamentals/) | JOB / EXEC / DD fundamentals and JES2 submission | VALIDATED |
+| [02](labs/02-jcl-cataloged-procedures-symbolic-overrides/) | Cataloged procedures, symbolic parameters and overrides | VALIDATED |
+| [03](labs/03-jcl-instream-procedures/) | In-stream procedures | VALIDATED |
+| [04](labs/04-jcl-sequential-ps-fixed-block/) | Sequential PS allocation — fixed block | VALIDATED |
+| [05](labs/05-jcl-sequential-ps-variable-blocked/) | Sequential PS allocation — variable blocked | VALIDATED |
+| [06](labs/06-jcl-sequential-dataset-delete/) | Controlled sequential data-set deletion | VALIDATED |
+| [07](labs/07-jcl-pds-allocation-member-management/) | PDS allocation and member management | VALIDATED |
+| [08 Part 1](labs/08-jcl-ps-pds-data-set-operations-part-1/) | PS / PDS data-set operations | VALIDATED |
+| [08 Part 2](labs/08-jcl-ps-pds-data-set-operations-part-2/) | Continued PS / PDS data-set operations | VALIDATED |
+| [09](labs/09-jcl-iebcopy-select-exclude-pds-members/) | IEBCOPY select / exclude member operations | VALIDATED |
+| [10 Part 1](labs/10-jcl-advanced-pds-maintenance-part-1-compress/) | PDS compression | VALIDATED |
+| [10](labs/10-jcl-advanced-pds-maintenance/) | Advanced PDS maintenance | VALIDATED |
+| [11](labs/11-jcl-idcams-delete-ps-pds-member/) | IDCAMS delete operations | VALIDATED |
+| [12 Part 1](labs/12-jcl-generation-data-groups-part-1/) | GDG fundamentals and generation creation | VALIDATED |
+| [12 Part 2](labs/12-jcl-generation-data-groups-part-2/) | GDG rollover and limit management | VALIDATED |
+| [13](labs/13-jcl-gdg-data-movement-relative-generations/) | GDG data movement and relative generations | VALIDATED |
+| [14](labs/14-jcl-dfsort-fundamentals-character-ascending-sort/) | DFSORT positional character-key ascending sort | VALIDATED |
 
-## Objective
+The numbering reflects the historical lab sequence; Labs 08, 10 and 12 contain multiple repository parts.
 
-Introduce the structure of a z/OS batch job and validate the basic relationship between JCL statements, JES2 submission and step execution.
+## Lab 14 — DFSORT Validation
 
-Typical concepts include:
+Lab 14 extends the repository from data-set lifecycle mechanics into deterministic record processing.
 
-- JOB statement;
-- EXEC statement;
-- DD statement;
-- step naming;
-- dataset references;
-- return codes;
-- JES2 job submission;
-- SDSF inspection.
-
-This lab is the base dependency for every later JCL lab.
-
----
-
-# Lab 02 — Cataloged Procedures and Symbolic Overrides
-
-## Objective
-
-Demonstrate reusable cataloged procedures and parameter substitution.
-
-The lab introduces:
-
-- PROC members;
-- symbolic parameters;
-- procedure invocation;
-- parameter overrides;
-- reusable execution patterns.
-
-Conceptually:
+The validated control statement is:
 
 ```text
-caller JCL
-   |
-   +--> EXEC PROC=
-          |
-          v
-      cataloged procedure
-          |
-          +--> symbolic defaults
-          +--> caller overrides
+SORT FIELDS=(1,5,CH,A)
 ```
 
-This is an important step toward maintainable enterprise batch design.
-
----
-
-# Lab 03 — In-stream Procedures
-
-## Objective
-
-Demonstrate procedure definitions embedded directly inside a job rather than stored in a cataloged procedure library.
-
-This allows comparison between:
+The lab deliberately retained a failed first execution caused by an incorrect IEBGENER input DDNAME:
 
 ```text
-cataloged PROC
-      vs
-in-stream PROC
+SYSUT instead of SYSUT1
+    |
+    v
+CC=0012
+    |
+    v
+diagnose DDNAME failure
+    |
+    v
+correct JCL and remove failed NEW data set
+    |
+    v
+CC=0000
 ```
 
-The lab helps clarify where procedure reuse belongs and how job-local procedure logic behaves.
-
----
-
-# Lab 04 — Sequential PS Fixed Block
-
-## Objective
-
-Create and use a sequential Physical Sequential dataset with fixed-block characteristics.
-
-Key areas include:
-
-- dataset allocation;
-- `RECFM=FB`;
-- logical record length;
-- block size;
-- space allocation;
-- disposition handling.
-
-This establishes the first practical data-allocation foundation used by later application labs.
-
----
-
-# Lab 05 — Sequential PS Variable Blocked
-
-## Objective
-
-Extend sequential dataset handling to variable-blocked records.
-
-The lab introduces:
-
-- `RECFM=VB`;
-- variable record structure;
-- record-length considerations;
-- differences from fixed-block datasets;
-- JCL allocation parameters.
-
-Together, Labs 04 and 05 form the sequential dataset baseline.
-
----
-
-# Lab 06 — Sequential Dataset Delete
-
-## Objective
-
-Demonstrate controlled deletion of a sequential dataset.
-
-This reinforces lifecycle handling:
+The corrected DFSORT run then validated:
 
 ```text
-allocate
-   |
-   v
-use
-   |
-   v
-retain / catalog
-   |
-   v
-delete
+6 FB 80 records
+      |
+      v
+480 bytes processed
+      |
+      v
+ascending five-byte character key
+      |
+      v
+output order verified in ISPF Browse
 ```
 
-Deletion is treated as a controlled dataset operation rather than a cleanup afterthought.
+The failure is part of the engineering evidence rather than being removed from the history.
 
----
+## Data Lifecycle Progression
 
-# Lab 07 — PDS Allocation and Member Management
-
-## Objective
-
-Move from sequential datasets to Partitioned Data Sets.
-
-The lab covers the practical structure:
-
-```text
-PDS
- |
- +--> directory
- |
- +--> MEMBER1
- +--> MEMBER2
- +--> ...
-```
-
-Key areas include:
-
-- PDS allocation;
-- directory blocks;
-- member creation;
-- member management;
-- dataset organization.
-
-This lab is especially important because PDS libraries are heavily used for:
-
-- JCL;
-- procedures;
-- source code;
-- control statements;
-- configuration members.
-
----
-
-# Lab 08 — PS / PDS Data Set Operations
-
-Lab 08 is divided into two repository parts.
-
-## Part 1
-
-Introduces controlled operations between sequential and partitioned datasets.
-
-## Part 2
-
-Continues the same data movement / management track.
-
-The two parts should be read together as one progression.
-
-They extend the repository from simple allocation into practical dataset manipulation.
-
----
-
-# Lab 09 — IEBCOPY Select / Exclude PDS Members
-
-## Objective
-
-Use `IEBCOPY` for controlled PDS member operations.
-
-The lab demonstrates selective processing rather than treating a PDS as an indivisible object.
-
-Conceptually:
-
-```text
-source PDS
-   |
-   +--> selected members
-   |
-   v
-IEBCOPY
-   |
-   v
-target PDS
-```
-
-It also introduces exclusion logic for member-level operations.
-
-This is directly relevant to:
-
-- library maintenance;
-- controlled promotion;
-- source/member movement;
-- backup-like workflows.
-
----
-
-# Lab 10 — Advanced PDS Maintenance
-
-The repository contains two Lab 10 paths:
-
-```text
-10-jcl-advanced-pds-maintenance-part-1-compress
-10-jcl-advanced-pds-maintenance
-```
-
-These should be understood as one advanced PDS maintenance progression.
-
-## Part 1 — Compress
-
-Focuses on PDS compression / directory-space recovery concepts.
-
-## Advanced continuation
-
-Extends maintenance beyond the initial compression operation.
-
-The key architectural point is that JCL is being used to drive system utilities for dataset lifecycle management.
-
----
-
-# Lab 11 — IDCAMS Delete PS / PDS Member
-
-## Objective
-
-Introduce IDCAMS-driven delete operations.
-
-This brings the repository into utility-oriented dataset control.
-
-Conceptually:
-
-```text
-JCL
- |
- v
-IDCAMS
- |
- v
-catalog / dataset operation
-```
-
-IDCAMS becomes increasingly important when moving toward VSAM and more advanced catalog work.
-
----
-
-# Lab 12 — Generation Data Groups
-
-Lab 12 is split into two parts.
-
-## Part 1 — GDG fundamentals
-
-Introduces:
-
-- GDG base;
-- generations;
-- relative generation references;
-- creation of successive generations.
-
-Conceptually:
-
-```text
-GDG base
- |
- +--> G0001V00
- +--> G0002V00
- +--> G0003V00
-```
-
-Applications normally reference generations relatively rather than by absolute generation name.
-
-Examples:
-
-```text
-(+1) -> new generation
-(0)  -> current generation
-(-1) -> previous generation
-```
-
-## Part 2 — rollover and limit management
-
-Extends the GDG model into:
-
-- generation limits;
-- rollover;
-- retention behavior;
-- generation lifecycle.
-
-This moves the repository closer to realistic recurring batch processing.
-
----
-
-# Lab 13 — GDG Data Movement and Relative Generations
-
-## Objective
-
-Use GDGs as active batch data rather than only defining them.
-
-The lab extends the previous GDG foundation into:
-
-- relative generation references;
-- data movement;
-- current and previous generation usage;
-- generational batch workflows.
-
-This is an important bridge toward scheduler-controlled recurring jobs.
-
-Target pattern:
-
-```text
-daily job
-   |
-   +--> read previous generation
-   |
-   +--> create new generation
-   |
-   v
-next scheduled cycle
-```
-
----
-
-## Current capability matrix
-
-| Capability | Status |
-|---|---|
-| Basic JOB / EXEC / DD structure | Validated |
-| JES2 batch submission model | Validated |
-| Cataloged procedures | Validated |
-| Symbolic parameters / overrides | Validated |
-| In-stream procedures | Validated |
-| PS allocation | Validated |
-| Fixed-block datasets | Validated |
-| Variable-blocked datasets | Validated |
-| Controlled sequential dataset deletion | Validated |
-| PDS allocation | Validated |
-| PDS member management | Validated |
-| PS / PDS operations | Validated |
-| IEBCOPY select / exclude | Validated |
-| PDS maintenance / compression | Validated |
-| IDCAMS delete operations | Validated |
-| GDG fundamentals | Validated |
-| GDG rollover / limits | Validated |
-| Relative GDG generations | Validated |
-| GDG data movement | Validated |
-| Scheduler-controlled JCL execution | Planned integration |
-| USS / BPXBATCH execution | Planned integration |
-| end-to-end application batch chain | Planned integration |
-
----
-
-## Relationship with JES2
-
-JCL describes the batch workload.
-
-JES2 manages the submitted job through the JES execution environment.
-
-```text
-JCL
- |
- v
-JES2
- |
- +--> input processing
- +--> execution
- +--> spool
- +--> job output
-```
-
-The central system-engineering repository owns deeper JES2 system administration.
-
-`JCL_LABS` owns the workload-description side.
-
----
-
-## Relationship with the scheduler
-
-The scheduler sits above JCL.
-
-Correct architecture:
-
-```text
-Scheduler
-   |
-   | orders / releases work
-   v
-JCL
-   |
-   v
-JES2
-   |
-   v
-program / utility
-```
-
-Therefore:
-
-- Scheduler decides **when** and under what dependencies a workload runs.
-- JCL defines **what** JES2 executes.
-- JES2 provides the batch execution environment.
-
-This separation is fundamental to the wider ecosystem.
-
----
-
-## Relationship with COBOL
-
-COBOL depends directly on JCL for traditional batch workflows.
-
-Typical chain:
-
-```text
-source
-  |
-  v
-compile JCL
-  |
-  v
-compiler
-  |
-  v
-object
-  |
-  v
-link-edit
-  |
-  v
-load module
-  |
-  v
-execution JCL
-```
-
-The COBOL repository owns program logic.
-
-This repository owns reusable JCL concepts and batch execution patterns.
-
----
-
-## Relationship with VSAM
-
-VSAM workflows commonly require JCL and utilities for:
-
-- DEFINE;
-- DELETE;
-- REPRO;
-- LISTCAT;
-- dataset preparation;
-- batch program execution.
-
-The dependency is:
-
-```text
-JCL_LABS
-   |
-   v
-VSAM utilities
-   |
-   v
-VSAM datasets
-```
-
-The dedicated VSAM repository owns VSAM semantics.
-
-JCL provides the batch control layer.
-
----
-
-## Relationship with Db2
-
-Db2 batch work can involve:
-
-- utility jobs;
-- precompile / compile / link-edit flows;
-- DSN command processor execution;
-- application execution;
-- report jobs.
-
-The long-term architecture is:
-
-```text
-JCL
- |
- v
-COBOL / utility
- |
- v
-Db2
-```
-
-Db2-specific database behavior remains owned by the Db2 repository.
-
----
-
-## Relationship with CICS
-
-CICS itself is online transaction processing rather than standard batch execution.
-
-However, JCL remains relevant around:
-
-- compilation;
-- link-edit;
-- BMS map processing;
-- deployment preparation;
-- utility or maintenance jobs.
-
-Therefore JCL supports CICS development workflows without replacing CICS runtime administration.
-
----
-
-## Relationship with USS
-
-A future important integration is:
-
-```text
-JCL
- |
- +--> EXEC PGM=BPXBATCH
-          |
-          v
-       USS shell
-          |
-          +--> command
-          +--> script
-          +--> process
-```
-
-The dedicated USS repository owns UNIX runtime behavior.
-
-`JCL_LABS` owns the job structure used to enter USS.
-
----
-
-## Relationship with RACF
-
-RACF can control access to:
-
-- datasets;
-- procedures;
-- operator facilities;
-- submitted workload resources.
-
-This repository should not duplicate security administration.
-
-Instead, future cross-repository labs can demonstrate:
-
-```text
-RACF authorization
-       |
-       v
-JCL execution
-       |
-       v
-dataset / utility / application access
-```
-
----
-
-## Data lifecycle progression
-
-One of the strongest progressions in the current repository is the move from individual datasets to managed recurring generations.
+A major repository thread is the transition from individual data sets to repeatable batch data patterns:
 
 ```text
 PS
@@ -700,7 +176,10 @@ PS
 PDS
  |
  v
-utility-based maintenance
+member-level utility operations
+ |
+ v
+IDCAMS-driven lifecycle operations
  |
  v
 GDG
@@ -710,135 +189,126 @@ relative generations
  |
  v
 recurring batch data
+ |
+ v
+DFSORT processing
 ```
 
-This is the right foundation for enterprise scheduler integration.
+Specialized repositories retain ownership of their own data models. For example, `vsam01` owns VSAM-specific behavior even when JCL and IDCAMS are used to execute the work.
 
----
+## Execution and Evidence Model
 
-## JCL review methodology
-
-Before submission, JCL should be reviewed for predictable failure points.
-
-Typical checks include:
-
-- JOB statement syntax;
-- EXEC syntax;
-- PROC names;
-- symbolic parameters;
-- procedure overrides;
-- DD names;
-- dataset names;
-- DISP;
-- UNIT;
-- SPACE;
-- DCB;
-- record format;
-- LRECL;
-- continuation rules;
-- utility control statements;
-- existing datasets;
-- required libraries;
-- compatibility with the ADCD environment.
-
-The goal is not only to correct failures after execution.
-
-The goal is to identify likely failures before SUBMIT whenever possible.
-
----
-
-## Evidence methodology
-
-Each lab should make the execution chain reproducible.
-
-Useful evidence includes:
-
-- JCL source;
-- JES2 job ID;
-- SDSF job output;
-- step return codes;
-- utility messages;
-- dataset allocation results;
-- ISPF dataset/member views;
-- LISTCAT output where relevant;
-- final dataset/member state;
-- failure diagnosis;
-- corrected rerun.
-
-Engineering workflow:
+The repository uses the common engineering cycle:
 
 ```text
-Build
+BUILD
   ->
-Review
+REVIEW
   ->
-Submit
+EXECUTE
   ->
-Observe
+OBSERVE
   ->
-Diagnose
+DIAGNOSE
   ->
-Correct
+CORRECT
   ->
-Rerun
+RERUN
   ->
-Validate
+VALIDATE
   ->
-Document
+DOCUMENT
 ```
 
----
+Evidence may include JCL source, JES2 job identifiers, SDSF output, step return codes, utility messages, allocation/catalog results, ISPF views, final data state, failure diagnosis, and corrected reruns.
 
-## Return codes and failures
+A successful job is not treated as proven merely because it was submitted. The relevant step result and resulting system or data state must be verified.
 
-A successful lab should not merely state that it worked.
+## Failure and Recovery
 
-The documentation should show:
+Batch failures are retained when they contribute engineering value.
 
-- which step executed;
-- what RC was returned;
-- what changed;
-- how the result was verified.
-
-When a job fails, useful evidence includes:
+Examples across this domain can include:
 
 ```text
 JCL ERROR
-RC > 0
+RC / condition code > 0
 ABEND
-utility-specific message
 allocation failure
 catalog failure
+utility-specific diagnostic
 record-format mismatch
 ```
 
-Failures that contribute to understanding should remain documented.
+The documentation should connect the observable symptom to the correction and final validation rather than presenting only the successful rerun.
 
----
+## Architecture V2
 
-## Publication security
+Architecture V2 classifies capabilities individually rather than assigning one maturity label to an entire repository.
 
-Before publishing JCL evidence, review it for unnecessary exposure of:
+Typical capability progression:
 
-- host IP addresses;
-- MAC addresses;
-- hostnames;
-- Windows paths;
-- user-specific host information;
-- terminal/session identifiers;
-- credentials;
-- tokens;
-- secrets;
-- private keys;
-- environment-specific network details.
+```text
+M0 Exploratory
+ -> M1 Foundational
+ -> M2 Operational
+ -> M3 Resilient
+ -> M4 Automated
+ -> M5 Integrated
+```
 
-Dataset names and z/OS identifiers should only be retained when they are relevant and suitable for public documentation.
+Integration progression:
 
----
+```text
+I0 Standalone
+ -> I1 Cross-component
+ -> I2 Cross-repository
+ -> I3 Production-like
+```
 
-## Repository structure
+A locally validated JCL capability does not automatically prove an end-to-end cross-repository integration.
 
-Current high-level structure:
+## Cross-Domain Handoffs
+
+The repository provides reusable batch mechanics to specialized domains:
+
+```text
+JCL / JES2
+   |
+   +--> COBOL        application batch execution
+   +--> VSAM         utility and application data workflows
+   +--> Db2          utilities / application execution
+   +--> PL/I         compile / link / execute workflows
+   +--> HLASM        assemble / link / execute workflows
+   +--> REXX         IRXJCL batch execution
+   +--> USS          BPXBATCH-oriented future integration
+```
+
+The target repository owns validation of the target-domain behavior.
+
+The scheduler boundary is the inverse relationship: `zos-batch-scheduler` consumes JCL workloads and owns ordering, dependencies, calendars, active-job state, and orchestration.
+
+## Validation States
+
+Use these states consistently:
+
+```text
+VALIDATED LOCALLY
+    capability proven inside JCL_LABS
+
+VALIDATED IN TARGET REPOSITORY
+    integration or workload behavior proven by another repository
+
+CROSS-DOMAIN / REQUIRES EVIDENCE
+    architecture is defined but the end-to-end path needs dedicated evidence
+
+PLANNED
+    roadmap capability, not completed work
+```
+
+Existence of a related repository is not evidence that an integration path has been validated.
+
+## Repository Structure
 
 ```text
 .
@@ -847,258 +317,55 @@ Current high-level structure:
 │   └── ECOSYSTEM-INTEGRATION.md
 └── labs/
     ├── 01-jcl-fundamentals/
-    ├── 02-jcl-cataloged-procedures-symbolic-overrides/
-    ├── 03-jcl-instream-procedures/
-    ├── 04-jcl-sequential-ps-fixed-block/
-    ├── 05-jcl-sequential-ps-variable-blocked/
-    ├── 06-jcl-sequential-dataset-delete/
-    ├── 07-jcl-pds-allocation-member-management/
-    ├── 08-jcl-ps-pds-data-set-operations-part-1/
-    ├── 08-jcl-ps-pds-data-set-operations-part-2/
-    ├── 09-jcl-iebcopy-select-exclude-pds-members/
-    ├── 10-jcl-advanced-pds-maintenance-part-1-compress/
-    ├── 10-jcl-advanced-pds-maintenance/
-    ├── 11-jcl-idcams-delete-ps-pds-member/
-    ├── 12-jcl-generation-data-groups-part-1/
-    ├── 12-jcl-generation-data-groups-part-2/
-    └── 13-jcl-gdg-data-movement-relative-generations/
+    ├── ...
+    ├── 13-jcl-gdg-data-movement-relative-generations/
+    └── 14-jcl-dfsort-fundamentals-character-ascending-sort/
 ```
 
----
+Individual lab directories own their implementation, evidence, operational notes, and supporting material.
 
-## Ecosystem integration
+## Publication Security
 
-Detailed architecture:
+Before publishing evidence, review it for credentials, secrets, private keys, private network details, MAC addresses, host adapter identifiers, unnecessary hostnames, local paths, terminal/session identifiers, and other environment-specific information that does not contribute to the technical proof.
 
-[`docs/ECOSYSTEM-INTEGRATION.md`](docs/ECOSYSTEM-INTEGRATION.md)
+z/OS identifiers and data-set names should remain only when they are technically relevant and suitable for public documentation.
 
-This document defines:
+## Current Boundary
 
-- upstream dependencies;
-- downstream consumers;
-- scheduler boundary;
-- JES2 boundary;
-- COBOL / VSAM / Db2 relationships;
-- USS integration;
-- cross-repository lab chains;
-- validated vs planned capabilities.
-
----
-
-## Wider z/OS Engineering Laboratory
-
-Master repository:
-
-[`P-dot/zos-adcd-hercules-engineering-lab`](https://github.com/P-dot/zos-adcd-hercules-engineering-lab)
-
-The wider architecture includes:
-
-- `MVS_TSO_ISPF`
-- `JCL_LABS`
-- `zos-batch-scheduler`
-- `COBOL`
-- `vsam01`
-- `DB2-`
-- `CICS`
-- `UNIX_System_Services-`
-- `Rexx`
-- `PL-I`
-- `z_Assembly`
-- `mainframe-racf-security-evidence`
-- `zos-communications-server-network-lab`
-
-JCL sits near the center because many other tracks ultimately require batch execution.
-
----
-
-## Cross-repository integration tracks
-
-### Scheduler + JCL + JES2
+Validated locally:
 
 ```text
-Scheduler
-   |
-   v
-JCL
-   |
-   v
-JES2
-   |
-   v
-RC / ABEND
-   |
-   v
-Scheduler decision
+JCL fundamentals
+procedures and overrides
+PS / PDS lifecycle operations
+IEBCOPY / PDS maintenance
+IDCAMS operations
+GDG workflows
+DFSORT character-key ascending sort
 ```
 
-### JCL + COBOL + VSAM
+Cross-domain integration must be classified separately.
+
+The strategic continuation is not to duplicate application logic inside `JCL_LABS`, but to expose stable batch patterns that can be consumed by application, automation, scheduler, security, and recovery tracks.
+
+## Continue Through the Portfolio
 
 ```text
-JCL
- |
- v
-COBOL
- |
- v
-VSAM
+MVS_TSO_ISPF
+      |
+      v
+JCL_LABS
+      |
+      v
+zos-batch-scheduler
+      |
+      +--> automation
+      +--> application/data workloads
+      +--> security
+      +--> diagnostics/recovery
 ```
 
-### JCL + COBOL + Db2
-
-```text
-JCL
- |
- v
-COBOL
- |
- v
-Db2
-```
-
-### JCL + USS
-
-```text
-JCL
- |
- v
-BPXBATCH
- |
- v
-USS
-```
-
-### JCL + Storage / Backup
-
-```text
-JCL
- |
- v
-utility
- |
- v
-dataset / volume operation
-```
-
----
-
-## Planned maturity path
-
-Current foundation:
-
-```text
-syntax
- ->
-procedures
- ->
-PS
- ->
-PDS
- ->
-utilities
- ->
-IDCAMS
- ->
-GDG
-```
-
-Next integration stage:
-
-```text
-scheduler
- ->
-JCL / JES2
- ->
-application workload
- ->
-RC / ABEND
- ->
-restart / rerun
-```
-
-Long-term end-to-end target:
-
-```text
-Scheduler
-   |
-   v
-JCL / JES2
-   |
-   +--> IDCAMS / dataset preparation
-   |
-   +--> COBOL
-   |
-   +--> VSAM / Db2
-   |
-   +--> reporting / housekeeping
-   |
-   v
-RC / ABEND
-   |
-   v
-scheduler history / recovery
-```
-
----
-
-## Branch strategy
-
-Recommended development flow:
-
-```text
-main
- |
- +-- lab/<number>-<slug>
- |
- +-- docs/<topic>
- |
- +-- integration/<cross-repo-topic>
- |
- +-- fix/<slug>
-```
-
-Branches should be short-lived:
-
-```text
-branch
- -> implement
- -> validate
- -> security review
- -> document
- -> PR
- -> merge
- -> delete
-```
-
----
-
-## Status
-
-The repository currently provides a validated JCL progression through **Lab 13**, including:
-
-- fundamentals;
-- procedures;
-- sequential datasets;
-- PDS handling;
-- IBM utility use;
-- IDCAMS;
-- GDGs;
-- relative generation references;
-- recurring-data patterns.
-
-Its next strategic role is not to duplicate application repositories, but to support the first real cross-repository batch integration chain:
-
-```text
-Scheduler
-  ->
-JCL
-  ->
-JES2
-  ->
-workload
-  ->
-return code
-  ->
-scheduler decision
-```
-
-That is the natural next maturity step for the wider z/OS Engineering Laboratory.
+- [Ecosystem Integration](docs/ECOSYSTEM-INTEGRATION.md)
+- [Workload Automation](https://github.com/P-dot/zos-batch-scheduler)
+- [Master z/OS Engineering Laboratory](https://github.com/P-dot/zos-adcd-hercules-engineering-lab)
+- [IBM z/OS Engineering Portfolio](https://github.com/P-dot/P-dot)
