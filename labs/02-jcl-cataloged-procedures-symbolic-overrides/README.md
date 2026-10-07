@@ -1,30 +1,34 @@
-# Lab 02 — JCL cataloged procedures, JCLLIB and symbolic parameter overrides
+# Lab 02 — JCL Cataloged Procedures, JCLLIB and Symbolic Overrides
 
-## Estado
+> **Academy level:** Foundation · **Evidence:** VALIDATED · **Primary subsystem:** JES2 / JCL
+>
+> [← JCL course](../../README.md) · [Guided evidence →](evidence/README.md) · [Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md)
 
-**Completado correctamente.**
+## Status
 
-Este laboratorio reproduce en z/OS ADCD 1.11 el uso de una **cataloged procedure** JCL, una librería privada de procedimientos mediante `JCLLIB`, parámetros simbólicos definidos en `PROC` y un override desde el JCL llamador.
+**Validated successfully.**
 
-## Entorno
+This lab reproduces en z/OS ADCD 1.11 el uso de una **cataloged procedure** JCL, a private procedure library through `JCLLIB`, symbolic parameters defined in `PROC` and an override from the calling JCL.
 
-- Plataforma: z/OS ADCD 1.11 sobre Hercules
-- Usuario: `IBMUSER`
-- PDS de jobs: `IBMUSER.JCL.LAB`
-- PDS de procedures: `IBMUSER.JCL.PROCLIB`
-- Procedure creada: `IBMUSER.JCL.PROCLIB(COPYPROC)`
-- Utilidad ejecutada: `IEBGENER`
-- Validación: SDSF / JESJCL / step output / ISPF 3.4
+## Environment
 
-## Objetivo
+- Platform: z/OS ADCD 1.11 sobre Hercules
+- User: `IBMUSER`
+- Job PDS: `IBMUSER.JCL.LAB`
+- Procedure PDS: `IBMUSER.JCL.PROCLIB`
+- Procedure created: `IBMUSER.JCL.PROCLIB(COPYPROC)`
+- Utility executed: `IEBGENER`
+- Validation: SDSF / JESJCL / step output / ISPF 3.4
 
-Demostrar el flujo:
+## Objective
+
+Demonstrate the flow:
 
 ```text
 JOB -> JCLLIB -> EXEC PROC= -> cataloged PROC -> EXEC PGM=IEBGENER
 ```
 
-y verificar cómo JES expande la PROC y sustituye parámetros simbólicos.
+and verify how JES expands the PROC and substitutes symbolic parameters.
 
 ## Desarrollo
 
