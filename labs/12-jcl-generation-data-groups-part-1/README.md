@@ -103,3 +103,12 @@ The evidence set preserves the original supplied montage and extracted/upscaled 
 **PART 1 PASS**
 
 The GDG base was created and inspected, the initial IDCAMS syntax problem was diagnosed and corrected, three generations were cataloged successfully, and the lab reached the configured limit in a controlled state ready for Part 2.
+
+
+---
+### Continue learning
+
+**Previous:** [11-jcl-idcams-delete-ps-pds-member](../11-jcl-idcams-delete-ps-pds-member/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [12-jcl-generation-data-groups-part-2](../12-jcl-generation-data-groups-part-2/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

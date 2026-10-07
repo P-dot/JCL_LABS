@@ -196,3 +196,12 @@ The following topics are intentionally **not** included and will be implemented 
 **PART 2 COMPLETED AND VALIDATED**
 
 All final execution and IDCAMS validation steps completed with condition code 0.
+
+
+---
+### Continue learning
+
+**Previous:** [12-jcl-generation-data-groups-part-1](../12-jcl-generation-data-groups-part-1/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [13-jcl-gdg-data-movement-relative-generations](../13-jcl-gdg-data-movement-relative-generations/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

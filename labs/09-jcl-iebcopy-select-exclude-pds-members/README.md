@@ -65,3 +65,12 @@ No se utiliza CC 0000 como única prueba. El laboratorio conserva:
 
 ## Resultado final
 **LAB 09 COMPLETED — PASS**
+
+
+---
+### Continue learning
+
+**Previous:** [08-jcl-ps-pds-data-set-operations-part-2](../08-jcl-ps-pds-data-set-operations-part-2/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [10-jcl-advanced-pds-maintenance](../10-jcl-advanced-pds-maintenance/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

@@ -13,3 +13,12 @@ Final state:
 - IBMUSER.JCLLAB11.PDS: exists
 - DELTEST: deleted
 - KEEPTEST: exists
+
+
+---
+### Continue learning
+
+**Previous:** [10-jcl-advanced-pds-maintenance-part-1-compress](../10-jcl-advanced-pds-maintenance-part-1-compress/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [12-jcl-generation-data-groups-part-1](../12-jcl-generation-data-groups-part-1/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

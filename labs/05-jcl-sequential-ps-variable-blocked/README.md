@@ -223,3 +223,12 @@ ESTADO PERSISTENTE
 - [x] Documentación técnica y runbook incluidos
 
 **LAB 05 — CERRADO CORRECTAMENTE.**
+
+
+---
+### Continue learning
+
+**Previous:** [04-jcl-sequential-ps-fixed-block](../04-jcl-sequential-ps-fixed-block/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [06-jcl-sequential-dataset-delete](../06-jcl-sequential-dataset-delete/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

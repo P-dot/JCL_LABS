@@ -31,3 +31,12 @@ IEBCOPY reorganization of a classic PDS.
 ### Pending
 - Phase 3 — merge multiple PDS libraries.
 - Phase 4 — member management / rename.
+
+
+---
+### Continue learning
+
+**Previous:** [10-jcl-advanced-pds-maintenance](../10-jcl-advanced-pds-maintenance/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [11-jcl-idcams-delete-ps-pds-member](../11-jcl-idcams-delete-ps-pds-member/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

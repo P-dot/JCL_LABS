@@ -231,3 +231,12 @@ SORTOUT
 ```
 
 The initial `CC=0012` is retained as troubleshooting evidence and documents the diagnose/correct/validate cycle.
+
+
+---
+### Continue learning
+
+**Previous:** [13-jcl-gdg-data-movement-relative-generations](../13-jcl-gdg-data-movement-relative-generations/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [Choose the next Academy course](https://github.com/P-dot/P-dot/blob/main/docs/COURSES.md)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

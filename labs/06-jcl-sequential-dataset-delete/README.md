@@ -124,3 +124,12 @@ IBMUSER.JCLLAB06.DELETE -> NOT FOUND
 
 **LAB 06 CERRADO - eliminacion batch del data set demostrada mediante evidencia de
 estado antes/despues.**
+
+
+---
+### Continue learning
+
+**Previous:** [05-jcl-sequential-ps-variable-blocked](../05-jcl-sequential-ps-variable-blocked/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [07-jcl-pds-allocation-member-management](../07-jcl-pds-allocation-member-management/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

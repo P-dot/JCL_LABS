@@ -44,3 +44,12 @@ demonstrated members `FROMPS` and `MEMBER1`.
     PDS(member) -> PS
     PS -> PDS(member)
     PDS -> PDS
+
+
+---
+### Continue learning
+
+**Previous:** [08-jcl-ps-pds-data-set-operations-part-1](../08-jcl-ps-pds-data-set-operations-part-1/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [09-jcl-iebcopy-select-exclude-pds-members](../09-jcl-iebcopy-select-exclude-pds-members/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

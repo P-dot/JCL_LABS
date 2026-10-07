@@ -199,3 +199,12 @@ Deferred to a later lab:
 **LAB 13 COMPLETED AND VALIDATED**
 
 All executed batch steps used for the final demonstrations completed with condition code 0.
+
+
+---
+### Continue learning
+
+**Previous:** [12-jcl-generation-data-groups-part-2](../12-jcl-generation-data-groups-part-2/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [14-jcl-dfsort-fundamentals-character-ascending-sort](../14-jcl-dfsort-fundamentals-character-ascending-sort/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

@@ -194,3 +194,12 @@ The lab also demonstrates an important operational workflow: submit JCL, inspect
 - DD/DSN/DISP/SPACE/DCB allocation validated
 - New data set cataloged successfully
 - Final executions completed with condition code `0000`
+
+
+---
+### Continue learning
+
+**Previous:** Course introduction  
+**Course:** [Course home](../../README.md)  
+**Next:** [02-jcl-cataloged-procedures-symbolic-overrides](../02-jcl-cataloged-procedures-symbolic-overrides/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

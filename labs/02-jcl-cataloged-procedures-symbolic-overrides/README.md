@@ -159,3 +159,12 @@ El step terminó con `COND CODE 0000` y el segundo dataset quedó catalogado.
 El laboratorio demuestra cómo desacoplar JCL repetitivo mediante una cataloged procedure y cómo parametrizarla para reutilizar el mismo procedimiento con diferentes datasets sin modificar la definición central.
 
 **LAB CERRADO — ÉXITO.**
+
+
+---
+### Continue learning
+
+**Previous:** [01-jcl-fundamentals](../01-jcl-fundamentals/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [03-jcl-instream-procedures](../03-jcl-instream-procedures/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

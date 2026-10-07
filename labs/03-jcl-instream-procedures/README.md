@@ -53,3 +53,12 @@ SDSF confirmó que `COPYONE` fue expandida usando la definición in-stream. `STE
 Una PROC organiza JCL reutilizable; no es el programa ejecutable. En este laboratorio `COPYONE` contiene el JCL y `IEBGENER` es el programa que realiza el trabajo.
 
 **LAB 03 CERRADO — ÉXITO.**
+
+
+---
+### Continue learning
+
+**Previous:** [02-jcl-cataloged-procedures-symbolic-overrides](../02-jcl-cataloged-procedures-symbolic-overrides/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [04-jcl-sequential-ps-fixed-block](../04-jcl-sequential-ps-fixed-block/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

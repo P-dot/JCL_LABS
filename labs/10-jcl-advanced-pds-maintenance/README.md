@@ -22,3 +22,12 @@ copied and highest severity code 0. ISPF confirmed RENAMED and preserved the
 original MEMBERD content.
 
 All four phases are complete.
+
+
+---
+### Continue learning
+
+**Previous:** [09-jcl-iebcopy-select-exclude-pds-members](../09-jcl-iebcopy-select-exclude-pds-members/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [10-jcl-advanced-pds-maintenance-part-1-compress](../10-jcl-advanced-pds-maintenance-part-1-compress/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

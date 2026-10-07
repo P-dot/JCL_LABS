@@ -129,3 +129,12 @@ the appropriate distinction between sequential copying and partitioned-library
 management.
 
 No Part 2 implementation is included in this package.
+
+
+---
+### Continue learning
+
+**Previous:** [07-jcl-pds-allocation-member-management](../07-jcl-pds-allocation-member-management/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [08-jcl-ps-pds-data-set-operations-part-2](../08-jcl-ps-pds-data-set-operations-part-2/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

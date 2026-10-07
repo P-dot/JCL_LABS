@@ -152,3 +152,12 @@ ISPF Data Set Information
 El laboratorio demuestra de extremo a extremo la creación, catalogación y validación de un data set secuencial `PS` con registros `FB`, incluyendo evidencia de ejecución y comprobación del estado persistente en z/OS.
 
 **LAB 04 — PASS**
+
+
+---
+### Continue learning
+
+**Previous:** [03-jcl-instream-procedures](../03-jcl-instream-procedures/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [05-jcl-sequential-ps-variable-blocked](../05-jcl-sequential-ps-variable-blocked/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)

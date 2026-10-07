@@ -33,3 +33,12 @@ CRTPDS -> COND CODE 0000 -> PDS CATALOGED
 ```
 
 **LAB 07 CLOSED.**
+
+
+---
+### Continue learning
+
+**Previous:** [06-jcl-sequential-dataset-delete](../06-jcl-sequential-dataset-delete/)  
+**Course:** [Course home](../../README.md)  
+**Next:** [08-jcl-ps-pds-data-set-operations-part-1](../08-jcl-ps-pds-data-set-operations-part-1/)  
+**Academy:** [z/OS Engineering Academy](https://github.com/P-dot/P-dot/blob/main/docs/ACADEMY.md) · [Curriculum](https://github.com/P-dot/P-dot/blob/main/docs/CURRICULUM.md)
